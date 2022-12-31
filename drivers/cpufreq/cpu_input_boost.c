@@ -78,10 +78,8 @@ static unsigned int get_min_freq(struct cpufreq_policy *policy)
 
   if (cpumask_test_cpu(policy->cpu, cpu_lp_mask))
     freq = CONFIG_MIN_FREQ_LP;
-  else if (cpumask_test_cpu(policy->cpu, cpu_perf_mask))
-    freq = CONFIG_MIN_FREQ_PERF;
   else
-    freq = CONFIG_MIN_FREQ_PERFP;
+    freq = CONFIG_MIN_FREQ_PERF;
   return max(freq, policy->cpuinfo.min_freq);
 }
 
